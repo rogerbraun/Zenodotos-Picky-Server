@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'picky'
-require 'pry'
 require 'yajl'
 require File.expand_path '../logging', __FILE__
 
