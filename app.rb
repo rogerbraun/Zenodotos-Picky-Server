@@ -4,7 +4,17 @@ require 'yajl'
 require File.expand_path '../logging', __FILE__
 
 class ZenodotosSearch < Sinatra::Base
-  extend Picky::Sinatra::IndexActions
+  
+  
+  #extend Picky::Sinatra::IndexActions
+
+  post '/' do
+    index_name = params['index']
+    index = Picky::Indexes[index_name.to_sym]
+    data = params['data']
+    index.replace_from Yajl::Parser.parse(data) if data
+    200
+  end
 
   BookIndex = Picky::Index.new :books do
 
@@ -57,7 +67,7 @@ class ZenodotosSearch < Sinatra::Base
 
     indexing  removes_characters: /[^\p{Han}\p{Hiragana}\p{Katakana}a-zA-Z0-9\. ]/u,
               substitutes_characters_with: Picky::CharacterSubstituters::WestEuropean.new,
-              splits_text_on: /\s/u
+              splits_text_on: /[\s\r\n]/u
   end
 
   BookSearch = Picky::Search.new BookIndex do
