@@ -65,13 +65,13 @@ class ZenodotosSearch < Sinatra::Base
     category "vormerken"
     category "altes_datum"
 
-    indexing  removes_characters: /[^\p{Han}\p{Hiragana}\p{Katakana}a-zA-Z0-9\. ]/u,
+    indexing  removes_characters: /[^\p{Han}\p{Hiragana}\p{Katakana}a-zA-Z0-9\.\s]/u,
               substitutes_characters_with: Picky::CharacterSubstituters::WestEuropean.new,
-              splits_text_on: /[\s\r\n]/u
+              splits_text_on: /\s/u
   end
 
   BookSearch = Picky::Search.new BookIndex do
-    searching removes_characters: /[^\p{Han}\p{Hiragana}\p{Katakana}a-zA-Z0-9\.: ]/u,
+    searching removes_characters: /[^\p{Han}\p{Hiragana}\p{Katakana}a-zA-Z0-9\.:\s]/u,
               substitutes_characters_with: Picky::CharacterSubstituters::WestEuropean.new,
               splits_text_on: /\s/u
 
