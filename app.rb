@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'picky'
 require 'yajl'
+PICKY_ROOT = Dir.pwd
 require File.expand_path '../logging', __FILE__
 
 class ZenodotosSearch < Sinatra::Base

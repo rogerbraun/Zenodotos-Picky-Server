@@ -23,6 +23,7 @@ GEM
     text (1.2.1)
     tilt (1.3.3)
     url_escape (2009.06.24)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -30,3 +31,4 @@ PLATFORMS
 DEPENDENCIES
   picky
   sinatra
+  yajl-ruby
