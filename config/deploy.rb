@@ -35,3 +35,18 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
 end
+
+namespace :db_setup do
+  task :create_shared, :roles => :app do
+    run "mkdir -p #{deploy_to}/#{shared_dir}/index/"
+    run "chmod -R 1777 #{deploy_to}/#{shared_dir}/index/"
+  end
+
+  task :link_shared do
+    run "rm -rf #{release_path}/index"
+    run "ln -nfs #{shared_path}/index #{release_path}/index"
+  end
+end
+
+after "deploy:update_code", "db_setup:link_shared"
+after "deploy:setup", "db_setup:create_shared"
