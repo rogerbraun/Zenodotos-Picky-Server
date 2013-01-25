@@ -11,7 +11,7 @@ GEM
       multi_json
       rack_fast_escape
       text
-    rack (1.4.4)
+    rack (1.5.0)
     rack-protection (1.3.2)
       rack
     rack_fast_escape (2009.06.24)
@@ -23,7 +23,6 @@ GEM
     text (1.2.1)
     tilt (1.3.3)
     url_escape (2009.06.24)
-    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -31,4 +30,3 @@ PLATFORMS
 DEPENDENCIES
   picky
   sinatra
-  yajl-ruby

@@ -2,4 +2,4 @@ source :rubygems
 
 gem 'picky'
 gem 'sinatra'
-gem 'yajl-ruby'
+#gem 'sqlite3'
