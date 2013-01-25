@@ -120,7 +120,7 @@ class ZenodotosSearch < Sinatra::Base
     puts "Index could not be loaded: #{e}"
   end
 
-  at_exit do 
+  at_exit do
     BookIndex.dump
     BorrowerIndex.dump
   end
